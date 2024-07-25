@@ -72,7 +72,7 @@ function [HRVout, ResultsFileName ] = Main_HRV_Analysis(InputSig,t,InputFormat,H
 %       the GNU (v3 or later) public license. See license file for
 %       more information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-clc;
+%clc;
 
 if nargin < 4
     error('Wrong number of input arguments')
