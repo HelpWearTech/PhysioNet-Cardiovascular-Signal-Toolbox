@@ -112,16 +112,16 @@ switch project_name
            
 end
 
-if  isempty(HRVparams.writedata)    
-    % Default data OUTPUT folder name based on project name
-    HRVparams.writedata = strcat(project_name,'_Results');  
-    fprintf('New OUTPUT folder: "%s"\n', HRVparams.writedata)
-    mkdir(HRVparams.writedata);          % Create output folder and 
-elseif ~exist([pwd filesep HRVparams.writedata], 'dir')
-    fprintf('New OUTPUT folder: "%s"\n',HRVparams.writedata)
-    mkdir(HRVparams.writedata);          % Create output folder and 
-end
-addpath(genpath(HRVparams.writedata));   % Add folder to search path
+% if  isempty(HRVparams.writedata)    
+%     % Default data OUTPUT folder name based on project name
+%     HRVparams.writedata = strcat(project_name,'_Results');  
+%     fprintf('New OUTPUT folder: "%s"\n', HRVparams.writedata)
+%     mkdir(HRVparams.writedata);          % Create output folder and 
+% elseif ~exist([pwd filesep HRVparams.writedata], 'dir')
+%     fprintf('New OUTPUT folder: "%s"\n',HRVparams.writedata)
+%     mkdir(HRVparams.writedata);          % Create output folder and 
+% end
+% addpath(genpath(HRVparams.writedata));   % Add folder to search path
 
 %% 2. How much does the user trust the data:
 % This setting determines how stringently filtered the data is prior to
