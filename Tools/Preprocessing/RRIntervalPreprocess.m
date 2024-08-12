@@ -64,10 +64,10 @@ if nargin < 4
 	error('Not enough input arguments!')
 end
 
-% HelpWear fork: if HRVparams.preprocess.method is 'jak', use the super
+% HelpWear fork: if HRVparams.preprocess.method_outliers is 'jak', use the super
 % simple outliers-repair method developed by Jak Spacek for HelpWear in
 % 2024.
-if strcmp(HRVparams.preprocess.method , 'jak')
+if strcmp(HRVparams.preprocess.method_outliers , 'jak')
     % Use the in-house method (simplistic).
     [cleanNN, ~] = HW_RR_outliers(rr, 0.12); % 20% default value
     flagged_beats = isnan(cleanNN);
