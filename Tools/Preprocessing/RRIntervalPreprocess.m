@@ -71,7 +71,7 @@ if strcmp(HRVparams.preprocess.method_outliers , 'jak')
     % Use the in-house method (simplistic).
     [cleanNN, ~] = HW_RR_outliers(rr, 0.12); % 20% default value
     flagged_beats = isnan(cleanNN);
-    tNN_blanked = RRI_times; tNN_blanked(flagged_beats) = nan;
+    tNN_blanked = t_rr; tNN_blanked(flagged_beats) = nan;
     cleantNN = fillmissing(tNN_blanked, 'linear');
     return
 end
