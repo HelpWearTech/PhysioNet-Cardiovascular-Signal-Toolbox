@@ -64,6 +64,18 @@ if nargin < 4
 	error('Not enough input arguments!')
 end
 
+% HelpWear fork: if HRVparams.preprocess.method is 'jak', use the super
+% simple outliers-repair method developed by Jak Spacek for HelpWear in
+% 2024.
+if strcmp(HRVparams.preprocess.method , 'jak')
+    % Use the in-house method (simplistic).
+    [cleanNN, ~] = HW_RR_outliers(rr, 0.12); % 20% default value
+    flagged_beats = isnan(cleanNN);
+    tNN_blanked = RRI_times; tNN_blanked(flagged_beats) = nan;
+    cleantNN = fillmissing(tNN_blanked, 'linear');
+    return
+end
+
 figures = HRVparams.gen_figs;
 
 % 1. Identify data that is too close together and Remove
