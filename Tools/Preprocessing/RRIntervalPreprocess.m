@@ -73,6 +73,12 @@ if strcmp(HRVparams.preprocess.method_outliers , 'jak')
     flagged_beats = isnan(cleanNN);
     tNN_blanked = t_rr; tNN_blanked(flagged_beats) = nan;
     cleantNN = fillmissing(tNN_blanked, 'linear');
+    interpolated_diffs = [0;diff(cleantNN)];
+    cleanNN(isnan(cleanNN)) = interpolated_diffs(isnan(cleanNN));
+    if cleanNN(1)==0
+        cleanNN = cleanNN(2:end);
+        cleantNN = cleantNN(2:end);
+    end
     return
 end
 

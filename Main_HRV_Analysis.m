@@ -275,7 +275,8 @@ try
     fid = fopen([HRVparams.writedata filesep 'FileSuccessfullyAnalyzed.txt'],'a');
     fprintf(fid, '%s \n',subID );
     fclose(fid);
-  
+
+    HRVout = array2table(HRVout,"VariableNames",HRVtitle);
 catch
     % Write subjectID on log file
     fid = fopen(strcat(HRVparams.writedata,filesep,'AnalysisError.txt'),'a');
